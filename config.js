@@ -1,7 +1,7 @@
-const numeroproprietario = ["393338958677@s.whatsapp.net"]
+const ownerNumber = ["393338958677@s.whatsapp.net"]
  // cambia solo il numero e non rimuove @s.whatsapp.net
 
- const Proprietario originale = '393338958677'
+ const OriginalOwner = '393338958677'
  // cambia nel tuo numero
 
  const callbotmsgs = ['orion', 'brizas']
@@ -179,12 +179,12 @@ const numeroproprietario = ["393338958677@s.whatsapp.net"]
 
  // CONTATTO CREATORE
 
- const vcard = 'BEGIN:VCARD\n'
- + 'VERSIONE:3.0\n'
- + 'FN:Il mio creatore^~^\n'
- + 'ORG:Ian;\n'
- + 'TEL;tipo=CELL;tipo=VOCE;waid=557187645787:+55 71 8764-5787\n'
- + 'FINE:SCHEDA'
+ const vcard = 'BEGIN:VCARD\n' 
++ 'VERSION:3.0\n' 
++ 'FN:Mio creatore^~^\n' 
++ 'ORG:Ian;\n'
++ 'TEL;type=CELL;type=VOICE;waid=393338958677:+39 333 895 8677\n' 
++ 'END:VCARD'
  //vcard del proprietario, cambia i numeri in base al formato che hai
  // corrisponde
 
@@ -292,5 +292,5 @@ const numeroproprietario = ["393338958677@s.whatsapp.net"]
  esportazioni.cr = cr
  exports.vcard = vcard
  exports.OriginalOwner = OriginalOwner
- exports.ownerNumber = numeroproprietario
+exports.ownerNumber = ownerNumber
  exports.callbotmsgs = callbotmsgs
