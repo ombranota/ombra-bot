@@ -1,296 +1,296 @@
-const ownerNumber = ["557187645787@s.whatsapp.net"] 
-// mude somente o numero e não tire o @s.whatsapp.net
+const numeroproprietario = ["393338958677@s.whatsapp.net"]
+ // cambia solo il numero e non rimuove @s.whatsapp.net
 
-const OriginalOwner = '557187645787' 
-// mude para seu numero
+ const Proprietario originale = '393338958677'
+ // cambia nel tuo numero
 
-const callbotmsgs = ['orion', 'brizas']
+ const callbotmsgs = ['orion', 'brizas']
 
-var gimagenotregister = false
-// quando não há comando registrado o bot procura no google image
+ var gimagenotregister = false
+ // quando non c'è nessun comando registrato, il bot cerca su google image
 
-var sgooglenotregister = false
-// quando não há comando registrado o bot procura uma pesquisa no google
+ var sgooglenotregister = false
+ // quando non c'è nessun comando registrato, il bot cerca una ricerca su Google
 
-const antinewchatmsg = 'O anti chat novo está ativado e você não é meu proprietário, logo será bloqueado'
-//mensagem do antinewchat
+ const antinewchatmsg = 'La nuova anti-chat è attivata e tu non sei il mio proprietario, quindi sarai bloccato'
+ // messaggio da antinewchat
 
-const urlaudiomenu = 'https://b.top4top.io/m_19923zx481.mp3'
-// link direto da url do audio
+ const urlaudiomenu = 'https://b.top4top.io/m_19923zx481.mp3'
+ // collegamento diretto all'URL dell'audio
 
-const antipvmsg = '*🚫 PV BLOQUEADO 🚫*'
-//mensagem do antipv
+ const antipvmsg = '*🚫 BLOCCATO PRIVATO 🚫*'
+ // messaggio da antipv
 
-const limitqnt = 9999
+ const limitqnt = 9999
 
-const delayantispamcmd = 3
-//tempo de delay do antispamcmd (medido por segundos)
+ const delayantispamcmd = 3
+ // tempo di ritardo antispamcmd (misurato in secondi)
 
-const delaystealcmd = 60
-//tempo de delay dos comandos steal (medido por segundos)
+ const delaystealcmd = 60
+ // tempo di ritardo dei comandi di furto (misurato in secondi)
 
-const delaygamescmd = 60
-//tempo de delay dos comandos de games (medido por segundos)
+ const delaygamescmd = 60
+ // Tempo di ritardo dei comandi di gioco (misurato in secondi)
 
-const msgwelcomeimg = (numero, groupname) => {
-    return `Seja bem-vindo ${numero}\n\nEscreve ${prefix}menu para lista de comandos`
-}
-//Texto de boas vindas na imagem quando welcome esta ativado
-//Obs: não coloque o texto longo para a imagem não sumir
+ const msgwelcomeimg = (numero, nome gruppo) => {
+     return `Benvenuto ${numero}\n\nScrivi il menu ${prefisso} per l'elenco dei comandi`
+ }
+ //Testo di benvenuto nell'immagine quando il benvenuto è attivato
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const byemsgimg = (numero, groupname) => {
-    return `Adeus ${numero}`
-}
-//Texto de despedidas na imagem quando welcome esta ativado
-//Obs: não coloque o texto longo para a imagem não sumir
+ const byemsgimg = (numero, nome gruppo) => {
+     restituisce `Addio ${numero}`
+ }
+ //Testo di addio nell'immagine quando il benvenuto è attivato
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const menumsgimg = (numero, groupname, bat) => {
-    return `MENU DO BRIZAS-BOT COM 434 COMANDOS, BATERIA %${bat}`
-}
-//Texto no menu da imagem quando welcome esta ativado
-//Obs: não coloque o texto longo para a imagem não sumir
+ const menumsgimg = (numero, nome gruppo, pipistrello) => {
+     return `MENU CON 434 COMANDI, BATTERIA %${bat}`
+ }
+ //Testo nel menu immagine quando è attivato il benvenuto
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const titlemenumsgimg = 'BEM-VINDO'
-//Título no menu da imagem quando welcome esta ativado
-//Obs: não coloque o texto longo para a imagem não sumir
+ const titlemenumsgimg = 'BENVENUTO'
+ // Titolo nel menu immagine quando viene attivato il benvenuto
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const backgroundmenuimg = `https://i.imgur.com/tVKFNFk.png`
-//Link direto da imagem de fundo TAMANHO RECOMENDADO: 1280x720
-//Obs: não coloque o texto longo para a imagem não sumir
+ const backgroundmenuimg = `https://i.imgur.com/tVKFNFk.png`
+ //Link diretto all'immagine di sfondo DIMENSIONE CONSIGLIATA: 1280x720
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const backgroundwelcomeimg = `https://i.imgur.com/tVKFNFk.png`
-//Link direto da imagem de fundo da boas-vindas TAMANHO RECOMENDADO: 1280x720
-//Obs: não coloque o texto longo para a imagem não sumir
+ const backgroundwelcomeimg = `https://i.imgur.com/tVKFNFk.png`
+ //Link diretto all'immagine di sfondo di benvenuto DIMENSIONE CONSIGLIATA: 1280x720
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const backgroundbyeimg = `https://i.imgur.com/2TCj9ri.jpg`
-//Link direto da imagem de fundo das despedidas TAMANHO RECOMENDADO: 1280x720
-//Obs: não coloque o texto longo para a imagem não sumir
+ const backgroundbyeimg = `https://i.imgur.com/2TCj9ri.jpg`
+ //Link diretto all'immagine di sfondo dell'addio DIMENSIONE CONSIGLIATA: 1280x720
+ //Nota: non inserire il testo lungo in modo che l'immagine non scompaia
 
-const apikeyimgbb = 'c9cf132756510ad171587fb5a5a0389f'
-// sua key do imgbb para ativar o antiporn e mais alguns comando que necessita de baixar imagem
+ const apikeyimgbb = 'c9cf132756510ad171587fb5a5a0389f'
+ // la tua chiave imgbb per attivare antiporn e alcuni altri comandi che devono scaricare l'immagine
 
-const cr = '☄️✨𝑩𝑹⃟𝑰𝒁𝑨𝑺 𝑶⃟𝑹𝑰𝑶𝑵✨☄️\n' 
-// texto do simbolo de verificado
+ const cr = '🐧𝐏𝐢𝐧𝐠𝐮 𝐁𝐨𝐭🐧️\n'
+ // controlla il testo del simbolo
 
-const prefix = '!' 
-// prefixo
+ prefisso const = '!'
+ // prefisso
 
-const blockedmsg = '*😜 Seu número esta bloqueado, ou seja não ouvindo você 😜*'
-// mensagem quando alguem bloqueado solicita um comando
+ const blockmsg = '*😜 Il tuo numero è bloccato,  non ti ascolta 😜*'
+ // messaggio quando qualcuno bloccato richiede un comando
 
-const blockedcmdmsg = '*🚫Este comando esta bloqueado contate o propitetário do bot para saber o pq🚫*'
-// mensagem quando alguem solicita um comando bloqueado 
+ const blockcmdmsg = '*🚫Questo comando è bloccato contatta il proprietario del bot per sapere perché🚫*'
+ // messaggio quando qualcuno richiede un comando bloccato
 
-// MENSAGENS DE BAN
+ // MESSAGGI DI BAN
 
-const banmsgtype = '*Corra membro comum, o ban estar próximo*'
-// mensagem de ban no anti tipos de mensagem
+ const banmsgtype = '*Esegui membro comune, il divieto è vicino*'
+ // vieta il messaggio sui tipi di anti messaggio
 
-const ativohelp = `O sistema de contagem de mensagens é por grupo e consiste em rankear, listar, remover pessoas de acordo
-com a frequência de mensagens no grupo, veja abaixo os comandos para administrar as mensagens do grupo:
+ const activahelp = `Il sistema di conteggio dei messaggi è per gruppo e consiste in classifica, elenco, rimozione di persone in base a
+ con la frequenza dei messaggi nel gruppo, vedere di seguito i comandi per gestire i messaggi del gruppo:
 
-checkativo (marcar) - lista a frequência de mensagens do membro marcado
-rankativo - rankea as pessoas mais ativas do grupo
-banativos (num) - remove membros com uma certa qnt de numeros de msg pra baixo
-filtroativo (num) - lista membros com uma certa qnt de numeros de msg pra baixo]
-atividade - lista a atividade de todos membros do grupo
+ checkactive (mark) - elenca la frequenza dei messaggi del membro contrassegnato
+ classificato - classifica le persone più attive nel gruppo
+ banatives (num) - rimuove i membri con un certo qnt di numeri di msg in basso
+ filteractive(num) - elenca i membri con un certo qnt di numeri di msg in basso]
+ attività - elenca l'attività di tutti i membri del gruppo
 
-Obs: O número de mensagens pode estar impreciso devido a contagem ser pelo bot.`
+ Nota: il numero di messaggi potrebbe essere impreciso a causa del conteggio effettuato dal bot.`
 
-const adminmsgtype = '*Tu é adm ent n vou te banir por mandar um tipo de mensagem proibida*'
-// mensagem de quando adm manda tipos de mensagens proibidas
+ const adminmsgtype = '*Sei amministratore quindi non ti bandirò per aver inviato un tipo di messaggio proibito*'
+ // messaggio quando adm invia tipi di messaggi vietati
 
-const banmsgporn = 'Hmmm pornozinho com antiporn ativado, ja sabe né...'
-// mensagem de ban no antiporn
+ const banmsgporn = 'Hmmm pornozinho con antiporno attivato, lo sai bene...'
+ // vieta il messaggio in antiporn
 
-const adminmsgporn = '*Tu é adm ent n vou te banir por mandar porn*'
-// mensagem de quando adm manda porn com antiporn ativado
+ const adminmsgporn = '*Sei amministratore quindi non ti bandirò per l'invio di materiale pornografico*'
+ // messaggio quando adm invia porno con antiporno abilitato
 
-const banmsglink = 'Corra Membro comum, O ban está próximo...'
-// mensagem de ban no antilink
+ const banmsglink = 'Esegui membro comune, il ban è vicino...'
+ // bannare il messaggio su antilink
 
-const adminmsglink = 'Isso é um link amigo... ah é tu é adm ent pode kkkk 🙃'
-// mensagem de quando adm manda link
+ const adminmsglink = 'Questo è un link amichevole... oh sì sei amministratore quindi puoi lol 🙃'
+ // messaggio quando l'amministratore invia il collegamento
 
-const adminmsgpalavra = 'isso esta na lista das palavras proibidas pelo bot'
-// mensagem de quando adm manda uma palavra proibida pelo bot
+ const adminmsgpalavra = 'questo è nell'elenco delle parole vietate del bot'
+ // messaggio quando adm invia una parola proibita dal bot
 
-const banmsgpalavra = 'Palavra proibida? Já sabe né'
-// mensagem de ban quando manda uma palavra proibida pelo bot
+ const banmsgpalavra = 'Parola proibita?  Lo sai già, vero?
+ // messaggio di ban quando si invia una parola bannata dal bot
 
-const qnttravahardroleta = 2
-// quantidade de travas que mandam no roleta russa hard
-// Obs: O valor é multiplicado por 12 ent tenha cuidado
+ const qntlockshardroulette = 2
+ // numero di lucchetti nella roulette russa hard
+ // Nota: il valore viene moltiplicato per 12 quindi fai attenzione
 
-// MENSAGENS DE BOM DIA BOA TARDE E BOA NOITE
+ // MESSAGGI DEL BUONGIORNO BUON POMERIGGIO E BUONA NOTTE
 
-const linkimgday = 'https://i.imgur.com/RR18JiI.jpg'
-const textmsgday = 'Ohayo gozaimasu, Onii-chan 👉👈'
-// link e mensagem de bom dia
+ const linkimgday = 'https://i.imgur.com/RR18JiI.jpg'
+ const textmsgday = 'Ohayo gozaimasu, Onii-chan 👉👈'
+ // link e messaggio di buongiorno
 
-const linkimgeve = 'https://i.ibb.co/bLXgcBW/lp-tarde-anime-by-hitsukinyan-db7fpqr-fullview.jpg'
-const textmsgeve = `Kon'nichiwa Onii-chan, aceite esse café ☕`
-// link e mensagem de boa tarde
+ const linkimgeve = 'https://i.ibb.co/bLXgcBW/lp-tarde-anime-by-hitsukinyan-db7fpqr-fullview.jpg'
+ const textmsgeve = `Kon'nichiwa Onii-chan, accetta questo caffè ☕`
+ // link e messaggio del buon pomeriggio
 
-const linkimgnig = 'https://i.ibb.co/VJCd34F/EKvo372-X0-AEd-Hz.jpg'
-const textmsgnig = 'Konbanwa Onii-chan, espero que tenha tido um bom dia ☺️'
-// link e mensagem de boa noite 
+ const linkimgign = 'https://i.ibb.co/VJCd34F/EKvo372-X0-AEd-Hz.jpg'
+ const textmsgnig = 'Konbanwa Onii-chan, spero che tu abbia avuto una buona giornata ☺️'
+ // link e messaggio della buona notte
 
-// MENSAGENS DE ERRO
+ // MESSAGGIO DI ERRORE
 
-const msgerr = 'Deu erro, tente novamente :/'
-// mensagem de erro
+ const msgerr = 'Si è verificato un errore, riprova :/'
+ // messaggio di errore
 
-const notregister = `*Comando não registrado, escreva ${prefix}menu para ver a lista de comandos*`
+ const notregister = `*Comando non registrato, digita ${prefix}menu per vedere l'elenco dei comandi*`
 
-// MENSAGENS DE AUTOREPLY
+ // MESSAGGI DI RISPOSTA AUTOMATICA
 
-const botlindo = 'Bakaaaa 😣😣'
-const linkbotlindo = 'https://photos1.iorbix.com/00/00/00/00/02/72/43/64/C--6tZwaASQH-b.jpg'
-const botfeio = 'Tu parece um sirgueijo, um caranguejo amassado 😡'
-const cadebot = 'Me chamou onii-chan 👉👈?'
-const botfdp = 'Te foder rapaz, te deitar na porrada quando tiver dormindo'
-const botgostoso = 'Arigato go sai masu 😳👉👈'
-const botfofo = 'Arigato go sai masu 😳👉👈'
-const botbaianor = 'Convidei sua placa-mãe pra minha rede seu corno'
-const botcorno = 'Vai te foder, jogador de ff, comprador de pack do pézinho'
-const botputa = 'Senhora sua mãe 😡'
-const botgay = 'Falou o manja rola 😡'
-const botviado = 'Falou o manja rola 😡'
-const numbotfeio = 'senhora sua mãe 😡'
-// KEYS
+ const botlindo = 'Bakaaaa 😣😣'
+ const linkbotlindo = 'https://photos1.iorbix.com/00/00/00/00/02/72/43/64/C--6tZwaASQH-b.jpg'
+ const botfeio = 'Sembri un granchio, un granchio schiacciato 😡'
+ const cadebot = 'Mi hai chiamato onii-chan 👉👈?'
+ const botfdp = 'Vaffanculo ragazzo, fottiti quando dormi'
+ const botgostoso = 'Arigato vai sai masu 😳👉👈'
+ const botfofo = 'Arigato vai sai masu 😳👉👈'
+ const botbaianor = 'Ho invitato la tua scheda madre nella mia rete, il tuo clacson'
+ const botcorno = 'Vaffanculo, giocatore ff, compratore di foot pack'
+ const botputa = 'Signora tua madre 😡'
+ const botgay = 'Parla 😡'
+ const botviado = 'Parla la manja rola 😡'
+ const numbotfeio = 'signora tua madre 😡'
+ // CHIAVI
 
-// MENSAGENS DE EXCLUSIVIDADE
-let mess = {
-    wait: '⌛ Aguarde um pouco... ⌛',
-    success: '✔️ Sucesso! ✔️',
-    error: {
-        stick: '❌ Falha, ocorreu um erro ao converter a imagem em um adesivo ❌',
-        Iv: '❌ Link inválido ❌'
-    },
-    only: {
-        group: '❌ Este comando só pode ser usado em grupos! ❌',
-        ownerG: '❌ Este comando só pode ser usado pelo grupo proprietário! ❌',
-        ownerB: '❌ Este comando só pode ser usado pelo número proprietário! ❌',
-        admin: '❌ SILÊNCIO MEMBRO COMUM VC N TEM MORAL PRA USAR ESSE COMANDO ❌',
-        Badmin: '❌ Este comando só pode ser usado quando o bot se torna administrador! ❌'
-    }
-}
+ // MESSAGGI ESCLUSIVI
+ lascia disordine = {
+     wait: '⌛ Aspetta un po'... ⌛',
+     successo: '✔️ Successo!  ✔️',
+     errore: {
+         stick: '❌ Fallito, si è verificato un errore durante la conversione dell'immagine in adesivo ❌',
+         Iv: '❌Link non valido ❌'
+     },
+     solo: {
+         gruppo: '❌ Questo comando può essere utilizzato solo in gruppi!  ❌',
+         proprietarioG: '❌ Questo comando può essere utilizzato solo dal gruppo proprietario!  ❌',
+         proprietarioB: '❌ Questo comando può essere utilizzato solo dal numero del proprietario!  ❌',
+         admin: '❌ SILENZIO MEMBRO COMUNE NON HAI MORALE PER USARE QUESTO COMANDO ❌',
+         Badmin: '❌ Questo comando può essere utilizzato solo quando il bot diventa admin!  ❌'
+     }
+ }
 
-// CONTATO DO CRIADOR
+ // CONTATTO CREATORE
 
-const vcard = 'BEGIN:VCARD\n' 
-+ 'VERSION:3.0\n' 
-+ 'FN:Meu criador^~^\n' 
-+ 'ORG:Ian;\n' 
-+ 'TEL;type=CELL;type=VOICE;waid=557187645787:+55 71 8764-5787\n' 
-+ 'END:VCARD'
-//vcard do propietário, mude os numeros de acordo com o formato que
-//ele corresponde
+ const vcard = 'BEGIN:VCARD\n'
+ + 'VERSIONE:3.0\n'
+ + 'FN:Il mio creatore^~^\n'
+ + 'ORG:Ian;\n'
+ + 'TEL;tipo=CELL;tipo=VOCE;waid=557187645787:+55 71 8764-5787\n'
+ + 'FINE:SCHEDA'
+ //vcard del proprietario, cambia i numeri in base al formato che hai
+ // corrisponde
 
-const gpvotohelp = `O sistema de voto gp consiste no sistema normal de voto, porém feito somente para grupos
-veja abaixo os comandos e suas funções a seguir:
+ const gpvotohelp = `Il sistema di voto gp è il normale sistema di voto, ma fatto solo per i gruppi
+ Vedi i comandi e le loro funzioni di seguito:
 
-${prefix}gpinitvoto
-${prefix}gpvotoinit - Inicia a votação em grupo
-Ex: ${prefix}gpvotoinit tema | opção 1 | opção 2
-Obs: pode acrescentar quantas opções quiser
+ ${prefisso}gpinitvoto
+ ${prefix}gpvotoinit - Avvia la votazione di gruppo
+ Es: ${prefix}tema gpvotoinit |  opzione 1 |  opzione 2
+ Nota: puoi aggiungere tutte le opzioni che desideri.
 
-${prefix}gpclearvoto
-${prefix}gpvotoclear - Limpa todos os votos
+ ${prefisso}gpclearvoto
+ ${prefix}gpvotoclear - Cancella tutti i voti
 
-${prefix}gpvotostatus
-${prefix}gpstatusvoto - Vê o status atual do voto
+ ${prefisso}gpvotostatus
+ ${prefix}gpstatusvoto - Visualizza lo stato attuale della votazione
 
-${prefix}gpvoto - Vota em uma opção
-Ex: ${prefix}gpvoto opção1
+ ${prefix}gpvoto - Vota per un'opzione
+ Es: ${prefix}gpvoto opzione1
 
-${prefix}gpvotofinish
-${prefix}gpfinishvoto - Encerra a votação
+ ${prefix}gpvotofinish
+ ${prefix}gpfinishvoto - Chiude la votazione
 
-${prefix}gpbroadvoto
-${prefix}gpvotobroad - Faz uma transmissão da votação para todos membros do grupo`
+ ${prefisso}gpbroadvoto
+ ${prefix}gpvotobroad - Trasmette il voto a tutti i membri del gruppo`
 
-const votohelp = `O sistema de voto consistem em todos os usuários do bot poderem votar e para ter uma boa
-experiência, há comandos para administrar essa votação. Veja abaixo os comandos e suas funções a seguir:
+ const votohelp = `Il sistema di voto consiste in tutti gli utenti bot che possono votare e divertirsi
+ esperienza, ci sono comandi per amministrare questo sondaggio.  Vedi i comandi e le loro funzioni di seguito:
 
-${prefix}initvoto
-${prefix}votoinit - Inicia a votação geral
-Ex: ${prefix}votoinit tema | opção 1 | opção 2
-Obs: pode acrescentar quantas opções quiser
+ ${prefisso}Initvoto
+ ${prefix}votoinit - Avvia la votazione generale
+ Es: ${prefix}tema votoinit |  opzione 1 |  opzione 2
+ Nota: puoi aggiungere tutte le opzioni che desideri.
 
-${prefix}clearvoto
-${prefix}votoclear - Limpa todos os votos
+ ${prefix}clearvoto
+ ${prefix}votoclear - Cancella tutti i voti
 
-${prefix}votostatus
-${prefix}statusvoto - Vê o status atual do voto
+ ${prefix}votostatus
+ ${prefix}statusvoto - Visualizza lo stato attuale della votazione
 
-${prefix}voto - Vota em uma opção
-Ex: ${prefix}voto opção1
+ ${prefix}vote - Vota per un'opzione
+ Es: ${prefix}opzione di voto1
 
-${prefix}votofinish
-${prefix}finishvoto - Encerra a votação
+ ${prefix}votofinitura
+ ${prefix}finishvoto - Termina la votazione
 
-${prefix}broadvoto
-${prefix}votobroad - Faz uma transmissão da votação para todos que usam o bot`
+ ${prefisso}voto diffuso
+ ${prefix}votobroad - Trasmette il voto a tutti coloro che usano il bot`
 
-// Nem ouse mexer aqui se n quiser que de erro
-exports.delaygamescmd = delaygamescmd
-exports.delaystealcmd = delaystealcmd
-exports.gpvotohelp = gpvotohelp
-exports.votohelp = votohelp
-exports.ativohelp = ativohelp
-exports.limitqnt = limitqnt
-exports.urlaudiomenu = urlaudiomenu
-exports.delayantispamcmd = delayantispamcmd
-exports.antinewchatmsg = antinewchatmsg
-exports.antipvmsg = antipvmsg
-exports.backgroundbyeimg = backgroundbyeimg
-exports.backgroundwelcomeimg = backgroundwelcomeimg
-exports.backgroundmenuimg = backgroundmenuimg
-exports.titlemenumsgimg = titlemenumsgimg
-exports.menumsgimg = menumsgimg
-exports.gimagenotregister = gimagenotregister
-exports.sgooglenotregister = sgooglenotregister
-exports.byemsgimg = byemsgimg
-exports.msgwelcomeimg = msgwelcomeimg
-exports.notregister = notregister
-exports.qnttravahardroleta = qnttravahardroleta
-exports.blockedcmdmsg = blockedcmdmsg
-exports.blockedmsg = blockedmsg
-exports.banmsgpalavra = banmsgpalavra
-exports.adminmsgpalavra = adminmsgpalavra
-exports.apikeyimgbb = apikeyimgbb
-exports.linkbotlindo = linkbotlindo
-exports.botlindo = botlindo
-exports.botfeio = botfeio
-exports.cadebot = cadebot
-exports.botfdp = botfdp
-exports.botgostoso = botgostoso
-exports.botfofo = botfofo
-exports.botbaianor = botbaianor
-exports.botcorno = botcorno
-exports.botputa = botputa
-exports.botgay = botgay
-exports.botviado = botviado
-exports.numbotfeio = numbotfeio
-exports.linkimgday = linkimgday
-exports.textmsgday = textmsgday
-exports.textmsgnig = textmsgnig
-exports.linkimgnig = linkimgnig
-exports.textmsgeve = textmsgeve
-exports.linkimgeve = linkimgeve
-exports.adminmsgtype = adminmsgtype
-exports.adminmsgporn = adminmsgporn
-exports.adminmsglink = adminmsglink
-exports.banmsglink = banmsglink
-exports.banmsgporn = banmsgporn
-exports.banmsgtype = banmsgtype
-exports.msgerr = msgerr
-exports.mess = mess
-exports.prefix = prefix
-exports.cr = cr
-exports.vcard = vcard
-exports.OriginalOwner = OriginalOwner
-exports.ownerNumber = ownerNumber
-exports.callbotmsgs = callbotmsgs
+ // Non osare spostarti qui se non vuoi un errore
+ exports.delaygamescmd = delaygamescmd
+ exports.delaystealcmd = delaystealcmd
+ exports.gpvotohelp = gpvotohelp
+ exports.votohelp = votehelp
+ exports.activehelp = activehelp
+ exports.limitqnt = limitqnt
+ exports.urlaudiomenu = urlaaudiomenu
+ exports.delayantispamcmd = delayantispamcmd
+ exports.antinewchatmsg = antinewchatmsg
+ exports.antipvmsg = antipvmsg
+ exports.backgroundbyeimg = backgroundbyeimg
+ exports.backgroundwelcomeimg = backgroundwelcomeimg
+ exports.backgroundmenuimg = backgroundmenuimg
+ exports.titlemenumsgimg = titlemenumsgimg
+ exports.menumsgimg = menumsgimg
+ exports.gimagenotregister = gimagenotregister
+ exports.sgooglenotregister = sgooglenotregister
+ exports.byemsgimg = byemsgimg
+ exports.msgwelcomeimg = msgwelcomeimg
+ exports.notregister = notregister
+ exports.qnttravahardroleta = qnttravahardroleta
+ exports.blockedcmdmsg = bloccatocmdmsg
+ exports.blockedmsg = messaggi bloccati
+ exports.banmsgpalavra = banmsgpalavra
+ exports.adminmsgword = adminmsgword
+ exports.apikeyimgbb = apikeyimgbb
+ exports.linkbotlindo = linkbotlindo
+ exports.botlindo = botlindo
+ exports.botfeio = botfeio
+ exports.cadebot = cadebot
+ exports.botfdp = botfdp
+ exports.botgostoso = botgostoso
+ exports.botfofo = botfofo
+ exports.botbaianor = botbaianor
+ exports.botcorno = botcorno
+ exports.botputa = botputa
+ exports.botgay = botgay
+ exports.botviado = botviado
+ exports.numbotfeio = numbotfeio
+ exports.linkimgday = linkimgday
+ exports.textmsgday = textmsgday
+ exports.textmsgign = textmsgign
+ exports.linkimgign = linkimgign
+ exports.textmsgeve = textmsgeve
+ exports.linkimgeve = linkimgeve
+ exports.adminmsgtype = adminmsgtype
+ exports.adminmsgporn = adminmsgporn
+ exports.adminmsglink = adminmsglink
+ exports.banmsglink = banmsglink
+ exports.banmsgporn = banmsgporn
+ exports.banmsgtype = banmsgtype
+ exports.msgerr = msgerr
+ exports.mess = pasticcio
+ exports.prefix = prefisso
+ esportazioni.cr = cr
+ exports.vcard = vcard
+ exports.OriginalOwner = OriginalOwner
+ exports.ownerNumber = numeroproprietario
+ exports.callbotmsgs = callbotmsgs
